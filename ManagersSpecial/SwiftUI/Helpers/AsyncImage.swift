@@ -5,17 +5,37 @@
 //  Created by Ike Mattice on 5/27/21.
 //
 
+import Foundation
 import SwiftUI
+import Combine
+
 
 ///A Image view that loads an image from an external URL
 struct AsyncImage: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    ///A loader used to manage the download of the image file
+    @ObservedObject private var imageLoader = ImageLoader()
+    ///An image to be shown before the downloaded image is loaded
+    var placeholder: Image
+    
+    init(url: String, placeholder: Image = Image(systemName: "photo")) {
+        self.placeholder = placeholder
+        self.imageLoader.load(url: url)
     }
+    
+    var body: some View {
+        if let uiImage = self.imageLoader.downloadedImage {
+            return Image(uiImage: uiImage)
+        } else {
+            return placeholder
+        }
+    }
+    
 }
+
+
 
 struct AsyncImage_Previews: PreviewProvider {
     static var previews: some View {
-        AsyncImage()
+        AsyncImage(url: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/L.png")
     }
 }
