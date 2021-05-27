@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-//TODO: - Fetch data from API
+//TODO: ✅ - Fetch data from API
 //TODO: - Update data periodically/manually
 
-//TODO: - Create card view to display specials
+//TODO: ✅ - Create card view to display specials
 //TODO: - Display products using CanvasUnit sizing parameters
     //TODO: - Initialize SpecialCard View with canvas units?
     //TODO: - Create canvas on the super view and fit cards onto the canvas?

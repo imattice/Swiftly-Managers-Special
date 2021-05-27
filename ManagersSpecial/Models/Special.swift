@@ -27,6 +27,14 @@ struct Special: Codable, Identifiable {
         let width = try container.decode(Int.self, forKey: .width)
         self.viewSize = (height: height, width: width)
     }
+    internal
+    init(imageURL: String, displayName: String, originalPrice: String, price: String, viewSize: (height: Int, width: Int)) {
+        self.imageURL = imageURL
+        self.displayName = displayName
+        self.originalPrice = originalPrice
+        self.price = price
+        self.viewSize = viewSize
+    }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)

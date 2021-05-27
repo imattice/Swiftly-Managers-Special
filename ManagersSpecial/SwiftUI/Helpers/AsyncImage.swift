@@ -24,7 +24,7 @@ struct AsyncImage: View {
     
     var body: some View {
         if let uiImage = self.imageLoader.downloadedImage {
-            return Image(uiImage: uiImage)
+            return Image(uiImage: uiImage).resizable()
         } else {
             return placeholder
         }
