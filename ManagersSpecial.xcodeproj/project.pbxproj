@@ -15,11 +15,12 @@
 		7F64866D266012A50087C586 /* CanvasUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64866C266012A50087C586 /* CanvasUnit.swift */; };
 		7F648671266013040087C586 /* Special.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F648670266013030087C586 /* Special.swift */; };
 		7F648676266014370087C586 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F648675266014370087C586 /* AsyncImage.swift */; };
-		7F648678266021F50087C586 /* SpecialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F648677266021F50087C586 /* SpecialTests.swift */; };
-		7F64867A26602A770087C586 /* ManagerSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64867926602A770087C586 /* ManagerSpecial.swift */; };
+		7F64867A26602A770087C586 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64867926602A770087C586 /* APIResponse.swift */; };
 		7F64867E2660421C0087C586 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64867D2660421C0087C586 /* ImageLoader.swift */; };
 		7F648680266049870087C586 /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64867F266049870087C586 /* ImageLoaderTests.swift */; };
 		7F648682266050D40087C586 /* SpecialCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F648681266050D40087C586 /* SpecialCard.swift */; };
+		7F648684266143640087C586 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F648683266143640087C586 /* NetworkManager.swift */; };
+		7F648686266144350087C586 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F648685266144350087C586 /* NetworkManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +55,12 @@
 		7F64866C266012A50087C586 /* CanvasUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasUnit.swift; sourceTree = "<group>"; };
 		7F648670266013030087C586 /* Special.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Special.swift; sourceTree = "<group>"; };
 		7F648675266014370087C586 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
-		7F648677266021F50087C586 /* SpecialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialTests.swift; sourceTree = "<group>"; };
-		7F64867926602A770087C586 /* ManagerSpecial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerSpecial.swift; sourceTree = "<group>"; };
+		7F64867926602A770087C586 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		7F64867D2660421C0087C586 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		7F64867F266049870087C586 /* ImageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTests.swift; sourceTree = "<group>"; };
 		7F648681266050D40087C586 /* SpecialCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialCard.swift; sourceTree = "<group>"; };
+		7F648683266143640087C586 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7F648685266144350087C586 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +131,8 @@
 		7F6486502660124C0087C586 /* ManagersSpecialTests */ = {
 			isa = PBXGroup;
 			children = (
-				7F648677266021F50087C586 /* SpecialTests.swift */,
 				7F64867F266049870087C586 /* ImageLoaderTests.swift */,
+				7F648685266144350087C586 /* NetworkManagerTests.swift */,
 				7F6486532660124C0087C586 /* Info.plist */,
 			);
 			path = ManagersSpecialTests;
@@ -150,8 +152,8 @@
 			children = (
 				7F64863F2660124C0087C586 /* ManagersSpecialApp.swift */,
 				7F6486412660124C0087C586 /* ManagersSpecialView.swift */,
-				7F648672266013F40087C586 /* Helpers */,
 				7F648681266050D40087C586 /* SpecialCard.swift */,
+				7F648672266013F40087C586 /* Helpers */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -159,7 +161,8 @@
 		7F64866B2660126C0087C586 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7F64867926602A770087C586 /* ManagerSpecial.swift */,
+				7F648683266143640087C586 /* NetworkManager.swift */,
+				7F64867926602A770087C586 /* APIResponse.swift */,
 				7F648670266013030087C586 /* Special.swift */,
 				7F64867D2660421C0087C586 /* ImageLoader.swift */,
 			);
@@ -305,9 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F648684266143640087C586 /* NetworkManager.swift in Sources */,
 				7F64867E2660421C0087C586 /* ImageLoader.swift in Sources */,
 				7F648676266014370087C586 /* AsyncImage.swift in Sources */,
-				7F64867A26602A770087C586 /* ManagerSpecial.swift in Sources */,
+				7F64867A26602A770087C586 /* APIResponse.swift in Sources */,
 				7F6486422660124C0087C586 /* ManagersSpecialView.swift in Sources */,
 				7F648671266013040087C586 /* Special.swift in Sources */,
 				7F64866D266012A50087C586 /* CanvasUnit.swift in Sources */,
@@ -320,8 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F648686266144350087C586 /* NetworkManagerTests.swift in Sources */,
 				7F648680266049870087C586 /* ImageLoaderTests.swift in Sources */,
-				7F648678266021F50087C586 /* SpecialTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 //TODO: ✅ - Fetch data from API
 //TODO: - Update data periodically/manually
 
@@ -19,9 +20,19 @@ import SwiftUI
 //TODO: - Add Readme file
 
 struct ManagersSpecialView: View {
+    @State var networkManager: NetworkManager = NetworkManager()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        GeometryReader { geometry in
+            NavigationView {
+                ScrollView {
+                    ForEach(networkManager.specials) { special in
+                        Text(special.displayName)
+                    }
+                }
+                .navigationTitle("Manager's Special")
+            }
+        }
     }
 }
 

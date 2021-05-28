@@ -8,7 +8,7 @@
 import Foundation
 
 ///An object representing data for a specal offer
-struct Special: Codable, Identifiable {
+struct Special: Decodable, Identifiable {
     let id: String = UUID().uuidString
     let imageURL: String
     let displayName: String
@@ -34,16 +34,6 @@ struct Special: Codable, Identifiable {
         self.originalPrice = originalPrice
         self.price = price
         self.viewSize = viewSize
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(imageURL, forKey: .imageUrl)
-        try container.encode(displayName, forKey: .display_name)
-        try container.encode(originalPrice, forKey: .original_price)
-        try container.encode(price, forKey: .price)
-        try container.encode(viewSize.height, forKey: .height)
-        try container.encode(viewSize.width, forKey: .width)
     }
     
     enum CodingKeys: CodingKey {
