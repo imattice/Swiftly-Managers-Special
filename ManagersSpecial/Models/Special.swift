@@ -8,24 +8,27 @@
 import Foundation
 
 ///An object representing data for a specal offer
-struct Special: Decodable, Identifiable {
+struct Special: Decodable, Identifiable, Hashable {
+    static func == (lhs: Special, rhs: Special) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id: String = UUID().uuidString
     let imageURL: String
     let displayName: String
     let originalPrice: String
     let price: String
-    let viewSize: (height: Int, width:Int)
-    
+    let viewHeight: Int
+    let viewWidth: Int
+        
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.imageURL = try container.decode(String.self, forKey: .imageUrl)
         self.displayName = try container.decode(String.self, forKey: .display_name)
         self.originalPrice = try container.decode(String.self, forKey: .original_price)
         self.price  = try container.decode(String.self, forKey: .price)
-        
-        let height = try container.decode(Int.self, forKey: .height)
-        let width = try container.decode(Int.self, forKey: .width)
-        self.viewSize = (height: height, width: width)
+        self.viewHeight = try container.decode(Int.self, forKey: .height)
+        self.viewWidth = try container.decode(Int.self, forKey: .width)
     }
     internal
     init(imageURL: String, displayName: String, originalPrice: String, price: String, viewSize: (height: Int, width: Int)) {
@@ -33,7 +36,8 @@ struct Special: Decodable, Identifiable {
         self.displayName = displayName
         self.originalPrice = originalPrice
         self.price = price
-        self.viewSize = viewSize
+        self.viewHeight = viewSize.height
+        self.viewWidth = viewSize.width
     }
     
     enum CodingKeys: CodingKey {

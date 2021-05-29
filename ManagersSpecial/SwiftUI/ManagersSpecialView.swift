@@ -14,9 +14,9 @@ import SwiftUI
 //TODO: - Display products using CanvasUnit sizing parameters
     //TODO: - Initialize SpecialCard View with canvas units?
     //TODO: - Create canvas on the super view and fit cards onto the canvas?
-//TODO: - Scroll to see all Specials
-//TODO: - Display cards that do not fit in the canvas on a new line
-//TODO: - Center cards
+//TODO: ✅ - Scroll to see all Specials
+//TODO: ✅ - Display cards that do not fit in the canvas on a new line
+//TODO: ✅ - Center cards
 //TODO: - Add Readme file
 
 struct ManagersSpecialView: View {
@@ -28,15 +28,14 @@ struct ManagersSpecialView: View {
             let canvasUnit = (geometry.size.width - (scrollViewPadding*2)) / CGFloat(networkManager.canvasUnit ?? 1)
             NavigationView {
                 ScrollView {
-                    ForEach(networkManager.specials) {
-                        Text($0.displayName)
-//                        SpecialCard(special: $0)
-//                            .frame(
-//                                width: canvasUnit*CGFloat($0.viewSize.width),
-//                                height: canvasUnit*CGFloat($0.viewSize.height))
-//                            .border(Color.black)
+                    FlexibleDisplayView(data: networkManager.specials) {
+                        SpecialCard(special: $0)
+                        .frame(
+                            width: canvasUnit*CGFloat($0.viewWidth),
+                            height: canvasUnit*CGFloat($0.viewHeight))
+                        .border(Color.black)
+
                     }
-                    .padding(EdgeInsets(top: 0, leading: scrollViewPadding, bottom: 0, trailing: scrollViewPadding))
                 }
                 .navigationTitle("Manager's Special")
                 .navigationBarTitleDisplayMode(.inline)
