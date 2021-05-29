@@ -163,8 +163,8 @@
 			children = (
 				7F648683266143640087C586 /* NetworkManager.swift */,
 				7F64867926602A770087C586 /* APIResponse.swift */,
-				7F648670266013030087C586 /* Special.swift */,
 				7F64867D2660421C0087C586 /* ImageLoader.swift */,
+				7F648670266013030087C586 /* Special.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

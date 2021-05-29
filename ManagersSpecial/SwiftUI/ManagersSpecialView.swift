@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Combine
+//import Combine
 //TODO: ✅ - Fetch data from API
 //TODO: - Update data periodically/manually
 
@@ -20,17 +20,26 @@ import Combine
 //TODO: - Add Readme file
 
 struct ManagersSpecialView: View {
-    @State var networkManager: NetworkManager = NetworkManager()
+    @ObservedObject var networkManager: NetworkManager = NetworkManager()
+    let scrollViewPadding: CGFloat = 8
     
     var body: some View {
         GeometryReader { geometry in
+            let canvasUnit = (geometry.size.width - (scrollViewPadding*2)) / CGFloat(networkManager.canvasUnit ?? 1)
             NavigationView {
                 ScrollView {
-                    ForEach(networkManager.specials) { special in
-                        Text(special.displayName)
+                    ForEach(networkManager.specials) {
+                        Text($0.displayName)
+//                        SpecialCard(special: $0)
+//                            .frame(
+//                                width: canvasUnit*CGFloat($0.viewSize.width),
+//                                height: canvasUnit*CGFloat($0.viewSize.height))
+//                            .border(Color.black)
                     }
+                    .padding(EdgeInsets(top: 0, leading: scrollViewPadding, bottom: 0, trailing: scrollViewPadding))
                 }
                 .navigationTitle("Manager's Special")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }
