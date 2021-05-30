@@ -57,7 +57,8 @@ struct FlexibleDisplayView<Data: Collection, Content: View>: View where Data.Ele
 struct FlexibleDisplayView_Previews: PreviewProvider {
     static var previews: some View {
         FlexibleDisplayView(data: [Special(imageURL: "", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:8, width: 8))]) { special in
-            SpecialCard(special: special)
+            SpecialCard()
+                .environmentObject(special)
         }
     }
 }

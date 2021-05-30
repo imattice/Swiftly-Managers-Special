@@ -10,8 +10,6 @@ import Combine
 
 ///A class for managing the network call and updating data in the UI
 class NetworkManager: ObservableObject {
-    ///A property that sends updates when a NetworkManager property is updated
-    var didChange = PassthroughSubject<NetworkManager, Never>()
     ///Contains all specials currently available
     @Published
     var specials = [Special]()
@@ -32,6 +30,7 @@ class NetworkManager: ObservableObject {
             let managerSpecial = try? JSONDecoder().decode(APIResponse.self, from: data)
             else { print("invalid data returned from data task"); return }
             
+            dump(managerSpecial)
             DispatchQueue.main.async {
                 self.specials = managerSpecial.specials
                 self.canvasUnit =  managerSpecial.canvasUnit

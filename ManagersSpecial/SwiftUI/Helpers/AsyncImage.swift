@@ -13,7 +13,8 @@ import Combine
 ///A Image view that loads an image from an external URL
 struct AsyncImage: View {
     ///A loader used to manage the download of the image file
-    @ObservedObject private var imageLoader = ImageLoader()
+    @ObservedObject
+    private var imageLoader = ImageLoader()
     ///An image to be shown before the downloaded image is loaded
     var placeholder: Image
     
@@ -24,7 +25,8 @@ struct AsyncImage: View {
     
     var body: some View {
         if let uiImage = self.imageLoader.downloadedImage {
-            return Image(uiImage: uiImage).resizable()
+            return Image(uiImage: uiImage)
+                .resizable()
         } else {
             return placeholder
         }

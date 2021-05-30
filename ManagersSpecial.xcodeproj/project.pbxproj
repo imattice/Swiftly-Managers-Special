@@ -23,6 +23,7 @@
 		7F648686266144350087C586 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F648685266144350087C586 /* NetworkManagerTests.swift */; };
 		7F648689266211010087C586 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F648688266211010087C586 /* View.swift */; };
 		7F64868B2662125E0087C586 /* FlexibleDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64868A2662125E0087C586 /* FlexibleDisplayView.swift */; };
+		7F64868D2663FEA30087C586 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64868C2663FEA30087C586 /* FlipView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		7F648685266144350087C586 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		7F648688266211010087C586 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		7F64868A2662125E0087C586 /* FlexibleDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleDisplayView.swift; sourceTree = "<group>"; };
+		7F64868C2663FEA30087C586 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				7F6486412660124C0087C586 /* ManagersSpecialView.swift */,
 				7F64868A2662125E0087C586 /* FlexibleDisplayView.swift */,
 				7F648681266050D40087C586 /* SpecialCard.swift */,
+				7F64868C2663FEA30087C586 /* FlipView.swift */,
 				7F648687266210F00087C586 /* Extensions */,
 				7F648672266013F40087C586 /* Helpers */,
 			);
@@ -329,6 +332,7 @@
 				7F648676266014370087C586 /* AsyncImage.swift in Sources */,
 				7F64867A26602A770087C586 /* APIResponse.swift in Sources */,
 				7F6486422660124C0087C586 /* ManagersSpecialView.swift in Sources */,
+				7F64868D2663FEA30087C586 /* FlipView.swift in Sources */,
 				7F648671266013040087C586 /* Special.swift in Sources */,
 				7F64866D266012A50087C586 /* CanvasUnit.swift in Sources */,
 				7F6486402660124C0087C586 /* ManagersSpecialApp.swift in Sources */,

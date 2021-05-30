@@ -29,7 +29,8 @@ struct ManagersSpecialView: View {
             NavigationView {
                 ScrollView {
                     FlexibleDisplayView(data: networkManager.specials) {
-                        SpecialCard(special: $0)
+                        SpecialCard()
+                            .environmentObject($0)
                         .frame(
                             width: canvasUnit*CGFloat($0.viewWidth),
                             height: canvasUnit*CGFloat($0.viewHeight))

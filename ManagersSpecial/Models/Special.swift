@@ -8,11 +8,7 @@
 import Foundation
 
 ///An object representing data for a specal offer
-struct Special: Decodable, Identifiable, Hashable {
-    static func == (lhs: Special, rhs: Special) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
+class Special: Decodable, Identifiable, ObservableObject {
     let id: String = UUID().uuidString
     let imageURL: String
     let displayName: String
@@ -20,7 +16,25 @@ struct Special: Decodable, Identifiable, Hashable {
     let price: String
     let viewHeight: Int
     let viewWidth: Int
+    
+    var viewStyle: ViewStyle {
+        if  (viewWidth <= 5) && (viewHeight <= 5)  {
+            return .smallImage
+        }
+        else if viewWidth <= 5 {
+            return .tower
+        }
+        else if viewHeight <= 5 {
+            return .long
+        }
+        else { return .normal }
+    }
+    
+    enum ViewStyle {
+        case smallImage, tower, long, normal
+    }
         
+    required
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.imageURL = try container.decode(String.self, forKey: .imageUrl)
@@ -42,5 +56,15 @@ struct Special: Decodable, Identifiable, Hashable {
     
     enum CodingKeys: CodingKey {
         case imageUrl, width, height, display_name, original_price, price
+    }
+}
+
+extension Special: Hashable, Equatable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: Special, rhs: Special) -> Bool {
+        return lhs.id == rhs.id
     }
 }
