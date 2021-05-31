@@ -43,7 +43,6 @@ struct FlexibleDisplayView<Data: Collection, Content: View>: View where Data.Ele
     var rows: [[Data.Element]] = [[]]
     var currentRow = 0
     var remainingWidth = availableWidth
-    print("width:\(availableWidth)")
 
     for element in data {
       let elementSize = elementsSize[element, default: CGSize(width: availableWidth, height: 1)]
