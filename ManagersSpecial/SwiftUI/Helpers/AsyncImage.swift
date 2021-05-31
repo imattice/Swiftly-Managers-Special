@@ -18,11 +18,6 @@ struct AsyncImage: View {
     ///An image to be shown before the downloaded image is loaded
     var placeholder: Image
     
-    init(url: String, placeholder: Image = Image(systemName: "photo")) {
-        self.placeholder = placeholder
-        self.imageLoader.load(url: url)
-    }
-    
     var body: some View {
         if let uiImage = self.imageLoader.downloadedImage {
             return Image(uiImage: uiImage)
@@ -32,6 +27,10 @@ struct AsyncImage: View {
         }
     }
     
+    init(url: String, placeholder: Image = Image(systemName: "photo")) {
+        self.placeholder = placeholder
+        self.imageLoader.load(url: url)
+    }
 }
 
 

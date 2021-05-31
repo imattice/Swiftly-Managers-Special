@@ -30,7 +30,6 @@ class NetworkManager: ObservableObject {
             let managerSpecial = try? JSONDecoder().decode(APIResponse.self, from: data)
             else { print("invalid data returned from data task"); return }
             
-            dump(managerSpecial)
             DispatchQueue.main.async {
                 self.specials = managerSpecial.specials
                 self.canvasUnit =  managerSpecial.canvasUnit

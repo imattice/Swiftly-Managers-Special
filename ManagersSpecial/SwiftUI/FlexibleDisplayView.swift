@@ -7,13 +7,20 @@
 
 import SwiftUI
 
+///A view for showing a collection of views in a continuous row that wraps overflow content
 struct FlexibleDisplayView<Data: Collection, Content: View>: View where Data.Element: Hashable {
-  let availableWidth: CGFloat = 300
-  let data: Data
-  let spacing: CGFloat = 8
+    ///A variable that keeps track of the available row width
+    @State var availableWidth: CGFloat
+    ///Contains the sizes of each element in the view
+    @State var elementsSize: [Data.Element: CGSize] = [:]
+    ///The data to be displayed
+    let data: Data
+    ///The spacing between each view
+    let spacing: CGFloat = 8
+    ///The alignment of each view
     let alignment: HorizontalAlignment = .center
-  let content: (Data.Element) -> Content
-  @State var elementsSize: [Data.Element: CGSize] = [:]
+    ///The view the element will be displayed as
+    let content: (Data.Element) -> Content
 
   var body : some View {
     VStack(alignment: alignment, spacing: spacing) {
@@ -31,10 +38,12 @@ struct FlexibleDisplayView<Data: Collection, Content: View>: View where Data.Ele
     }
   }
 
+    ///Computes the sizes of each row
   func computeRows() -> [[Data.Element]] {
     var rows: [[Data.Element]] = [[]]
     var currentRow = 0
     var remainingWidth = availableWidth
+    print("width:\(availableWidth)")
 
     for element in data {
       let elementSize = elementsSize[element, default: CGSize(width: availableWidth, height: 1)]
@@ -56,8 +65,8 @@ struct FlexibleDisplayView<Data: Collection, Content: View>: View where Data.Ele
 
 struct FlexibleDisplayView_Previews: PreviewProvider {
     static var previews: some View {
-        FlexibleDisplayView(data: [Special(imageURL: "", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:8, width: 8))]) { special in
-            SpecialCard()
+        FlexibleDisplayView(availableWidth: 300, data: [Special(imageURL: "", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:8, width: 8))]) { special in
+            SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 4, height: 4), canvasUnit: 16))
                 .environmentObject(special)
         }
     }

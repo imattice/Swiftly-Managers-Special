@@ -14,7 +14,7 @@ class ImageLoader: ObservableObject {
     ///The image downloaded from the URL
     @Published
     var downloadedImage: UIImage?
-    
+    ///Load the image from the given URL
     func load(url: String, completion: (()->())? = nil) {
         guard let imageURL = URL(string: url)
         else { print("invalid url for async image download: \(url)"); return}
