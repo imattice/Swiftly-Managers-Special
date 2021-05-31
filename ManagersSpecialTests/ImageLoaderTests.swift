@@ -12,9 +12,9 @@ class ImageLoaderTests: XCTestCase {
 
     func testImageLoad() {
         let expectation = expectation(description: "Image Load Complete")
-        let loader = ImageLoader()
+        let loader = ImageLoader(url: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png")
 
-        loader.load(url: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png") {
+        loader.loadImage() {
             expectation.fulfill()
         }
         
