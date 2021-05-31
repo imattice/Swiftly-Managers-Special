@@ -15,7 +15,7 @@ This project was written by Ike Mattice.
 
 Thank you to Mohammad Azam for a tutorial on creating [Asynchronous loading images in SwiftUI](https://azamsharp.medium.com/asynchronously-loading-images-in-swiftui-3d0452230949)
 
-Thank you to SchwiftyUI for guidance on [cacheing image files](https://schwiftyui.com/swiftui/downloading-and-caching-images-in-swiftui/
+Thank you to SchwiftyUI for guidance on [cacheing image files](https://schwiftyui.com/swiftui/downloading-and-caching-images-in-swiftui)
 
 Thank you to FiveStars.blog for [the FlexibleView](https://www.fivestars.blog/articles/flexible-swiftui/) that was adapted to place the Special offer views in a stacked collection
 
