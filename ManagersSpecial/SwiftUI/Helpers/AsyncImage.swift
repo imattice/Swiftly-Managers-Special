@@ -14,7 +14,7 @@ import Combine
 struct AsyncImage: View {
     ///A loader used to manage the download of the image file
     @ObservedObject
-    private var imageLoader = ImageLoader()
+    private var imageLoader: ImageLoader
     ///An image to be shown before the downloaded image is loaded
     var placeholder: Image
     
@@ -29,7 +29,7 @@ struct AsyncImage: View {
     
     init(url: String, placeholder: Image = Image(systemName: "photo")) {
         self.placeholder = placeholder
-        self.imageLoader.load(url: url)
+        self.imageLoader = ImageLoader(url: url)
     }
 }
 
