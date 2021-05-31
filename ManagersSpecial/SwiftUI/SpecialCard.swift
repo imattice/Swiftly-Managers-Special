@@ -158,8 +158,20 @@ struct PriceDisplay: View {
 
 struct SpecialCard_Previews: PreviewProvider {
     static var previews: some View {
-        SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 4, height: 4), canvasUnit: 16))
-            .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 8, width:8)))
+        Group {
+            SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 16, height: 16), canvasUnit: 16))
+                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 8, width:8)))
+                .previewDisplayName("Default view")
+            SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 4, height: 4), canvasUnit: 16))
+                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 8, width:8)))
+                .previewDisplayName("Small Flip View")
+            SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 4, height: 10), canvasUnit: 16))
+                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 8, width:8)))
+                .previewDisplayName("Tower View")
+            SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 10, height: 4), canvasUnit: 16))
+                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 8, width:8)))
+                .previewDisplayName("Long View")
+        }
             .previewLayout(.sizeThatFits)
     }
 }
