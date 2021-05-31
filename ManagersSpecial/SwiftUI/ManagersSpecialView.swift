@@ -6,42 +6,35 @@
 //
 
 import SwiftUI
-//import Combine
-//TODO: ✅ - Fetch data from API
-//TODO: - Update data periodically/manually
-
-//TODO: ✅ - Create card view to display specials
-//TODO: - Display products using CanvasUnit sizing parameters
-    //TODO: - Initialize SpecialCard View with canvas units?
-    //TODO: - Create canvas on the super view and fit cards onto the canvas?
-//TODO: ✅ - Scroll to see all Specials
-//TODO: ✅ - Display cards that do not fit in the canvas on a new line
-//TODO: ✅ - Center cards
-//TODO: - Add Readme file
 
 struct ManagersSpecialView: View {
     @ObservedObject var networkManager: NetworkManager = NetworkManager()
     let scrollViewPadding: CGFloat = 8
     
     var body: some View {
-        GeometryReader { geometry in
-            let canvasUnit = (geometry.size.width - (scrollViewPadding*2)) / CGFloat(networkManager.canvasUnit ?? 1)
             NavigationView {
-                ScrollView {
-                    FlexibleDisplayView(data: networkManager.specials) {
-                        SpecialCard()
-                            .environmentObject($0)
-                        .frame(
-                            width: canvasUnit*CGFloat($0.viewWidth),
-                            height: canvasUnit*CGFloat($0.viewHeight))
-                        .border(Color.black)
-
+                GeometryReader { geometry in
+                    //Calculate the points for the width of each canvas unit
+                    let canvasUnit = (geometry.size.width - (scrollViewPadding*2)) / CGFloat(networkManager.canvasUnit ?? 1)
+                    
+                    ScrollView {
+                        //Using the GeometryReader value as the availableWidth does not provide the screen size in time for the FlexibleDisplayView to calculate the row sizes accurately
+                        FlexibleDisplayView(availableWidth: UIScreen.main.bounds.width, data: networkManager.specials) {
+                            SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: $0.viewWidth, height: $0.viewHeight), canvasUnit: canvasUnit))
+                                .environmentObject($0)
+                                .frame(
+                                    width: canvasUnit*CGFloat($0.viewWidth),
+                                    height: canvasUnit*CGFloat($0.viewHeight))
+                        }
                     }
-                }
-                .navigationTitle("Manager's Special")
-                .navigationBarTitleDisplayMode(.inline)
+                    .navigationTitle("Manager's Special")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .padding(scrollViewPadding)
             }
+            .background(Color.lightGray.edgesIgnoringSafeArea(.all))
+
         }
+
     }
 }
 

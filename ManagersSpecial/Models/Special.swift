@@ -9,31 +9,21 @@ import Foundation
 
 ///An object representing data for a specal offer
 class Special: Decodable, Identifiable, ObservableObject {
+    ///The id for this  object
     let id: String = UUID().uuidString
+    ///The url for the image for this object
     let imageURL: String
+    ///The display name of the object
     let displayName: String
+    ///The original price for the object
     let originalPrice: String
+    ///The discounted price for the object
     let price: String
+    ///The ideal height for the object, in canvas units
     let viewHeight: Int
+    ///The ideal width for the object, in canvas units
     let viewWidth: Int
-    
-    var viewStyle: ViewStyle {
-        if  (viewWidth <= 5) && (viewHeight <= 5)  {
-            return .smallImage
-        }
-        else if viewWidth <= 5 {
-            return .tower
-        }
-        else if viewHeight <= 5 {
-            return .long
-        }
-        else { return .normal }
-    }
-    
-    enum ViewStyle {
-        case smallImage, tower, long, normal
-    }
-        
+            
     required
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

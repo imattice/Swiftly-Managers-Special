@@ -7,17 +7,14 @@
 
 import SwiftUI
 
+///A view that contains a front and back view that can be rotated using an animation block
 struct FlipView<Front: View, Back: View>: View {
-    
+    ///Tracks if the view is flipped
     var isFlipped: Bool
+    ///The view shown when the view is not flipped
     var front: () -> Front
+    ///The view shown when the view is flipped
     var back: () -> Back
-    
-    init(isFlipped: Bool = false, @ViewBuilder front: @escaping () -> Front, @ViewBuilder back: @escaping () -> Back) {
-        self.isFlipped = isFlipped
-        self.front = front
-        self.back = back
-    }
     
     var body: some View {
         ZStack {
@@ -31,6 +28,12 @@ struct FlipView<Front: View, Back: View>: View {
                 .opacity(isFlipped == true ? 1 : -1)
                 .accessibility(hidden: isFlipped == false)
         }
+    }
+    
+    init(isFlipped: Bool = false, @ViewBuilder front: @escaping () -> Front, @ViewBuilder back: @escaping () -> Back) {
+        self.isFlipped = isFlipped
+        self.front = front
+        self.back = back
     }
 }
 
