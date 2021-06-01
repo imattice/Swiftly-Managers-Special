@@ -39,4 +39,11 @@ class NetworkManager: ObservableObject {
             }
         }.resume()
     }
+    
+    func refresh() {
+        print("will fetch new data")
+        self.fetch() {
+            print("new data fetched")
+        }
+    }
 }

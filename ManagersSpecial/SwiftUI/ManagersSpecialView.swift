@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ManagersSpecialView: View {
     @ObservedObject var networkManager: NetworkManager = NetworkManager()
+    let refreshTimer = Timer.publish(every: 15.0, tolerance: 0.5, on: .main, in: .common).autoconnect()
     let scrollViewPadding: CGFloat = 8
     
     var body: some View {
@@ -31,6 +32,9 @@ struct ManagersSpecialView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .padding(scrollViewPadding)
             }
+                .onReceive(refreshTimer) { _ in 
+                    networkManager.refresh()
+                }
             .background(Color.lightGray.edgesIgnoringSafeArea(.all))
 
         }
