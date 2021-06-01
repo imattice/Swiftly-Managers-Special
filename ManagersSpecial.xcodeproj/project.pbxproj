@@ -25,6 +25,7 @@
 		7F64868D2663FEA30087C586 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64868C2663FEA30087C586 /* FlipView.swift */; };
 		7F64868F26641EB40087C586 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64868E26641EB40087C586 /* Color.swift */; };
 		7F648691266491D60087C586 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F648690266491D60087C586 /* ViewStyle.swift */; };
+		7F6486932666EF7F0087C586 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6486922666EF7F0087C586 /* PullToRefresh.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		7F64868C2663FEA30087C586 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		7F64868E26641EB40087C586 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F648690266491D60087C586 /* ViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
+		7F6486922666EF7F0087C586 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			children = (
 				7F648675266014370087C586 /* AsyncImage.swift */,
 				7F648690266491D60087C586 /* ViewStyle.swift */,
+				7F6486922666EF7F0087C586 /* PullToRefresh.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F648684266143640087C586 /* NetworkManager.swift in Sources */,
+				7F6486932666EF7F0087C586 /* PullToRefresh.swift in Sources */,
 				7F64867E2660421C0087C586 /* ImageLoader.swift in Sources */,
 				7F648689266211010087C586 /* View.swift in Sources */,
 				7F64868B2662125E0087C586 /* FlexibleDisplayView.swift in Sources */,

@@ -19,6 +19,10 @@ struct ManagersSpecialView: View {
                     let canvasUnit = (geometry.size.width - (scrollViewPadding*2)) / CGFloat(networkManager.canvasUnit ?? 1)
                     
                     ScrollView {
+                        PullToRefresh(coordinateSpaceName: "pullToRefresh") {
+                            cancelAutomaticRefresh()
+                            networkManager.refresh()
+                        }
                         //Using the GeometryReader value as the availableWidth does not provide the screen size in time for the FlexibleDisplayView to calculate the row sizes accurately
                         FlexibleDisplayView(availableWidth: UIScreen.main.bounds.width, data: networkManager.specials) {
                             SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: $0.viewWidth, height: $0.viewHeight), canvasUnit: canvasUnit))
@@ -28,6 +32,7 @@ struct ManagersSpecialView: View {
                                     height: canvasUnit*CGFloat($0.viewHeight))
                         }
                     }
+                    .coordinateSpace(name: "pullToRefresh")
                     .navigationTitle("Manager's Special")
                     .navigationBarTitleDisplayMode(.inline)
                     .padding(scrollViewPadding)
@@ -38,7 +43,10 @@ struct ManagersSpecialView: View {
             .background(Color.lightGray.edgesIgnoringSafeArea(.all))
 
         }
-
+    }
+        
+    func cancelAutomaticRefresh() {
+        refreshTimer.upstream.connect().cancel()
     }
 }
 
