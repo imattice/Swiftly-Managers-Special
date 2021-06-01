@@ -20,7 +20,6 @@ struct ManagersSpecialView: View {
                     
                     ScrollView {
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                            cancelAutomaticRefresh()
                             networkManager.refresh()
                         }
                         //Using the GeometryReader value as the availableWidth does not provide the screen size in time for the FlexibleDisplayView to calculate the row sizes accurately
