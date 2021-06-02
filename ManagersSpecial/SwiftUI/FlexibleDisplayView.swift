@@ -62,11 +62,39 @@ struct FlexibleDisplayView<Data: Collection, Content: View>: View where Data.Ele
   }
 }
 
+//struct FlexibleDisplayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FlexibleDisplayView(availableWidth: 300, data: [Special(imageURL: "", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:8, width: 8))]) { special in
+//            SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 4, height: 4), canvasUnit: 16))
+//                .environmentObject(special)
+//        }
+//    }
+//}
+//
+//
 struct FlexibleDisplayView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        FlexibleDisplayView(availableWidth: 300, data: [Special(imageURL: "", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:8, width: 8))]) { special in
-            SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 4, height: 4), canvasUnit: 16))
-                .environmentObject(special)
+        FlexibleDisplayView(availableWidth: 300,
+                            data: [
+                                Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:16, width: 16)),
+                                Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:8, width: 8)),
+                                Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:8, width: 8)),
+                                Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:8, width: 8)),
+                                Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:5, width: 14)),
+                                Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:4, width: 4)),
+                                Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:4, width: 4)),
+                                Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:4, width: 4)),
+                                Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "test product", originalPrice: "7.00", price: "6.00", viewSize: (height:4, width: 4)),
+                            ])
+        {
+            SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: $0.viewWidth, height: $0.viewHeight), canvasUnit: 16))
+                .border(Color.black)
+                .environmentObject($0)
+                .frame(
+                    width: 16*CGFloat($0.viewWidth),
+                    height: 16*CGFloat($0.viewHeight))
         }
+        .frame(width: 300, height: 400)
     }
 }

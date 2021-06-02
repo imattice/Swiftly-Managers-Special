@@ -38,5 +38,7 @@ struct AsyncImage: View {
 struct AsyncImage_Previews: PreviewProvider {
     static var previews: some View {
         AsyncImage(url: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/L.png")
+            .frame(width: 200, height: 200, alignment: .center)
+            .previewLayout(.sizeThatFits)
     }
 }

@@ -67,7 +67,7 @@ struct DefaultCard: View {
             }
             Spacer()
             Text(special.displayName)
-                .padding(4)
+                .padding()
                 .font(.title2)
                 .layoutPriority(95)
                 .minimumScaleFactor(0.6)
@@ -160,16 +160,20 @@ struct SpecialCard_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 16, height: 16), canvasUnit: 16))
-                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 8, width:8)))
+                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 16, width:16)))
+                .frame(width: 500, height: 500)
                 .previewDisplayName("Default view")
             SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 4, height: 4), canvasUnit: 16))
-                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 8, width:8)))
+                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 4, width:4)))
+                .frame(width: 300, height: 300)
                 .previewDisplayName("Small Flip View")
             SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 4, height: 10), canvasUnit: 16))
-                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 8, width:8)))
+                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 10, width:5)))
+                .frame(width: 300, height: 500)
                 .previewDisplayName("Tower View")
             SpecialCard(viewStyle: ViewStyle(viewSize: CGSize(width: 10, height: 4), canvasUnit: 16))
-                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/K.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height: 8, width:8)))
+                .environmentObject(Special(imageURL: "https://raw.githubusercontent.com/Swiftly-Systems/code-exercise-ios/master/images/J.png", displayName: "Kikkoman Less Sodium Soy Sauce", originalPrice: "2.00", price: "1.00", viewSize: (height:5, width:10)))
+                .frame(width: 500, height: 300)
                 .previewDisplayName("Long View")
         }
             .previewLayout(.sizeThatFits)

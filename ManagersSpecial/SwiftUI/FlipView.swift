@@ -49,5 +49,6 @@ struct FlipView_Previews: PreviewProvider {
                 .frame(width: 200, height: 200)
                 .background(Color.green)
         })
+        .previewLayout(.sizeThatFits)
     }
 }

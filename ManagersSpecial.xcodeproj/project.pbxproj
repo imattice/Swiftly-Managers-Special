@@ -186,8 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				7F648675266014370087C586 /* AsyncImage.swift */,
-				7F648690266491D60087C586 /* ViewStyle.swift */,
 				7F6486922666EF7F0087C586 /* PullToRefresh.swift */,
+				7F648690266491D60087C586 /* ViewStyle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

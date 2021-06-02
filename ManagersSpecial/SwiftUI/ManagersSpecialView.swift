@@ -40,8 +40,8 @@ struct ManagersSpecialView: View {
                     networkManager.refresh()
                 }
             .background(Color.lightGray.edgesIgnoringSafeArea(.all))
-
         }
+            .navigationViewStyle(StackNavigationViewStyle())
     }
         
     func cancelAutomaticRefresh() {

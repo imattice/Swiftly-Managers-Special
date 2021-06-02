@@ -45,8 +45,22 @@ struct PullToRefresh: View {
 
 struct PullToRefresh_Previews: PreviewProvider {
     static var previews: some View {
-        PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-            
+        ScrollView {
+        PullToRefresh(coordinateSpaceName: "pullToRefresh") { }
+            ForEach(["Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+               "Aliquam tincidunt mauris eu risus.",
+               "Vestibulum auctor dapibus neque.",
+               "Nunc dignissim risus id metus.",
+               "Cras ornare tristique elit.",
+               "Vivamus vestibulum ntulla nec ante.",
+               "Praesent placerat risus quis eros."], id:\.self) { text in
+                HStack(alignment: .center) {
+                Text(text)
+                    .padding()
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+
+            }
         }
     }
 }
